@@ -5,9 +5,9 @@ $document->addStyleSheet("components/com_sermons/com_sermons.css");
 ?>
 <script type="text/javascript">
 function videopopup (url) {
- fenster = window.open(url, "Video", "width=400,height=300,resizable=yes");
- fenster.focus();
- return false;
+fenster = window.open(url, "Video", "width=400,height=300,resizable=yes");
+fenster.focus();
+return false;
 }
 </script>
 <div id="com_sermons">
@@ -17,9 +17,9 @@ function videopopup (url) {
 
 if($this->showFileList == false) {
     if($this->top == 0) {
-       echo "<div id='lang'>".JText::_('COM_SERMONS_WELCOME')." ";
-       $i = 0;
-       foreach ($this->folders as $folder) {
+    echo "<div id='lang'>".JText::_('COM_SERMONS_WELCOME')." ";
+    $i = 0;
+    foreach ($this->folders as $folder) {
             $link = JRoute::_('index.php?option=com_sermons&view=folder&id='. $folder->id );
             if($i != 0) {
                 echo " | ";
@@ -29,29 +29,29 @@ if($this->showFileList == false) {
         }
         echo "</div>";
 
-		echo "<br /> <br /><br />";
+        echo "<br /> <br /><br />";
 
-		echo "<div id='lastestbox'>";
-		echo "<h3 id='ltitle'>".JText::_('COM_SERMONS_LAST_SERMONS')."</h3><br />";
-		echo "<table id='lfoldertable' cellspacing='0'>";
+        echo "<div id='lastestbox'>";
+        echo "<h3 id='ltitle'>".JText::_('COM_SERMONS_LAST_SERMONS')."</h3><br />";
+        echo "<table id='lfoldertable' cellspacing='0'>";
         echo "<tr>";
         echo "<th scope='col' class='left'>".JText::_('COM_SERMONS_TITLE')."</th>";
-		echo "<th scope='col'>".JText::_('COM_SERMONS_TOPIC')."</th>";
-		echo "<th scope='col'>".JText::_('COM_SERMONS_SPEAKER')."</th>";
-		echo "<th scope='col'>".JText::_('COM_SERMONS_DATE')."</th>";
-		echo "<th scope='col'>".JText::_('COM_SERMONS_DOWNLOAD')."</th>";
+        echo "<th scope='col'>".JText::_('COM_SERMONS_TOPIC')."</th>";
+        echo "<th scope='col'>".JText::_('COM_SERMONS_SPEAKER')."</th>";
+        echo "<th scope='col'>".JText::_('COM_SERMONS_DATE')."</th>";
+        echo "<th scope='col'>".JText::_('COM_SERMONS_DOWNLOAD')."</th>";
         echo "</tr>";
 
-		foreach ($this->last as $file) {
-			    echo "<tr>";
-			    echo "<th class='spec' scope='row'>$file->title</th>";
-			    echo "<td>$file->topic</td>";
-			    echo "<td>$file->speaker</td>";
-			    echo "<td>$file->date</td>";
-			    
-			    echo "<td>";
-			    echo JHtml::_('link', $file->path, JText::_('COM_SERMONS_DOWNLOAD_FILE'));
-			   if($file->video != "") {
+        foreach ($this->last as $file) {
+                echo "<tr>";
+                echo "<th class='spec' scope='row'>$file->title</th>";
+                echo "<td>$file->topic</td>";
+                echo "<td>$file->speaker</td>";
+                echo "<td>$file->date</td>";
+                
+                echo "<td>";
+                echo JHtml::_('link', $file->path, JText::_('COM_SERMONS_DOWNLOAD_FILE'));
+            if($file->video != "") {
                     $urls = explode("\n", $file->video);
                     if(count($urls) == 1) {
                         echo " | " . "<a href='$file->video' onclick='return videopopup(this.href);'>".JText::_('COM_SERMONS_VIDEO')."</a>";
@@ -63,43 +63,43 @@ if($this->showFileList == false) {
                     }
                             
                 }
-			    echo "</td>";
+                echo "</td>";
 
-			    echo "</tr>";
-		}
-		echo "</table>";
-		echo "</div><br /><br />";
+                echo "</tr>";
+        }
+        echo "</table>";
+        echo "</div><br /><br />";
 
-		$link = JRoute::_('index.php?option=com_sermons&view=folder&id=-1' );
+        $link = JRoute::_('index.php?option=com_sermons&view=folder&id=-1' );
         echo JHtml::_('link', $link, "Alle Predigten anzeigen"). "<br />";
-	} else {
+    } else {
         foreach ($this->folders as $folder) {
             $link = JRoute::_('index.php?option=com_sermons&view=folder&id='. $folder->id );
             echo JHtml::_('link', $link, $folder->alias). " <br />";
         }
     }
 } else {
-	//sort
-	
-   
+    //sort
+    
 
-	echo "<table id='foldertable' cellspacing='0'><tr><th scope='col' class='left'>".JText::_('COM_SERMONS_TITLE')."</th>";
-	$topicSort = JRoute::_('index.php?option=com_sermons&view=folder&id='.JRequest::getInt("id",0,"GET")."&sort=topic" );
-	echo "<th scope='col'>".JHtml::_('link', $topicSort, JText::_('COM_SERMONS_TOPIC'))."</th>";
-	$speakerSort = JRoute::_('index.php?option=com_sermons&view=folder&id='.JRequest::getInt("id",0,"GET")."&sort=speaker" );
-	echo "<th scope='col'>".JHtml::_('link', $speaker, JText::_('COM_SERMONS_SPEAKER'))."</th>";
-	$dateSort = JRoute::_('index.php?option=com_sermons&view=folder&id='.JRequest::getInt("id",0,"GET")."&sort=date" );
-	echo "<th scope='col'>".JHtml::_('link', $dateSort, JText::_('COM_SERMONS_DATE'))."</th>";
-	echo "<th scope='col'>".JText::_('COM_SERMONS_DOWNLOAD')."</th></tr>";
+
+    echo "<table id='foldertable' cellspacing='0'><tr><th scope='col' class='left'>".JText::_('COM_SERMONS_TITLE')."</th>";
+    $topicSort = JRoute::_('index.php?option=com_sermons&view=folder&id='.JRequest::getInt("id",0,"GET")."&sort=topic" );
+    echo "<th scope='col'>".JHtml::_('link', $topicSort, JText::_('COM_SERMONS_TOPIC'))."</th>";
+    $speakerSort = JRoute::_('index.php?option=com_sermons&view=folder&id='.JRequest::getInt("id",0,"GET")."&sort=speaker" );
+    echo "<th scope='col'>".JHtml::_('link', $speaker, JText::_('COM_SERMONS_SPEAKER'))."</th>";
+    $dateSort = JRoute::_('index.php?option=com_sermons&view=folder&id='.JRequest::getInt("id",0,"GET")."&sort=date" );
+    echo "<th scope='col'>".JHtml::_('link', $dateSort, JText::_('COM_SERMONS_DATE'))."</th>";
+    echo "<th scope='col'>".JText::_('COM_SERMONS_DOWNLOAD')."</th></tr>";
     foreach ($this->files as $file) {
-		echo "<tr>";
-		echo "<th class='spec' scope='row'>$file->title</th>";
-		echo "<td>$file->topic</td>";
-		echo "<td>$file->speaker</td>";
-		echo "<td>$file->date</td>";
-		echo "<td>";
-		echo JHtml::_('link', $file->path, JText::_('COM_SERMONS_DOWNLOAD_FILE'));
-		if($file->video != "") {
+        echo "<tr>";
+        echo "<th class='spec' scope='row'>$file->title</th>";
+        echo "<td>$file->topic</td>";
+        echo "<td>$file->speaker</td>";
+        echo "<td>$file->date</td>";
+        echo "<td>";
+        echo JHtml::_('link', $file->path, JText::_('COM_SERMONS_DOWNLOAD_FILE'));
+        if($file->video != "") {
             $urls = explode("\n", $file->video);
             if(count($urls) == 1) {
                 echo " | " . "<a href='$file->video' onclick='return videopopup(this.href);'>".JText::_('COM_SERMONS_VIDEO')."</a>";
@@ -111,8 +111,8 @@ if($this->showFileList == false) {
             }
                     
         }
-		echo "</td>";
-		echo "</tr>";
+        echo "</td>";
+        echo "</tr>";
     }
     echo "</table>";
 }

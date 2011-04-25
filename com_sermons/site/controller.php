@@ -4,9 +4,9 @@ jimport('joomla.application.component.controller');
 
 class SermonsController extends JController
 {
-	function display()
-	{
-		parent::display();
-	}
+    function display()
+    {
+        parent::display();
+    }
 }
 ?>
