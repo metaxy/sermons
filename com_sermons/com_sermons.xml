@@ -45,12 +45,15 @@
 		<language tag="de-DE">de-DE.com_sermons.ini</language>
 	</languages>
 	<administration>
-		<menu>Predigten</menu>
+		<menu>COM_SERMONS</menu>
 		<submenu> 
-			<menu view="files">Dateien</menu>
-			<menu view="folders">Ordner</menu> 
+			<menu view="files">FILES</menu>
+			<menu view="folders">FOLDERS</menu> 
 		</submenu> 
-
+        <languages>
+            <language tag="de-DE">de-DE.com_sermons.menu.ini</language>
+            <language tag="de-DE">admin/de-DE.com_sermons.ini</language>
+        </languages>
 		<files folder="admin">
 			<filename>index.html</filename>
 			<filename>admin.sermons.php</filename>
