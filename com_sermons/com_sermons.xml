@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE install SYSTEM "http://dev.joomla.org/xml/1.5/component-install.dtd">
+<install type="component" version="1.5.0">
+	<name>Sermons</name>
+	<creationDate>01/24/2010</creationDate>
+	<author>Paul Walger</author>
+	<authorEmail>metaxy@walger.name</authorEmail>
+	<authorUrl>http://paul.walger.eu</authorUrl>
+	<copyright>(C) 2010 All rights reserved.</copyright>
+	<license>GNU/GPLv3</license>
+	<version>1.5.0</version>
+	<description></description> 
+	<install>
+		<sql>
+			<file charset="utf8" driver="mysql">install.sql</file>
+		</sql>
+	</install>
+	<uninstall>
+		<sql>
+			<file charset="utf8" driver="mysql">uninstall.sql</file>
+		</sql>
+	</uninstall>	
+
+	<files folder="site">
+		<filename>index.html</filename>
+		<filename>sermons.php</filename>
+		<filename>controller.php</filename>
+		<filename>router.php</filename>
+		<filename>views/folder/view.html.php</filename>
+		<filename>views/folder/tmpl/default.php</filename>
+		<filename>views/folder/tmpl/index.html</filename>
+		<filename>views/folder/index.html</filename>
+		<filename>views/file/view.html.php</filename>
+		<filename>views/file/tmpl/default.php</filename>
+		<filename>views/file/index.html</filename>
+		<filename>views/file/tmpl/index.html</filename>
+		<filename>models/folder.php</filename>
+		<filename>models/file.php</filename>
+		<filename>models/index.html</filename>
+	</files>
+
+	<languages>
+		<language tag="de-DE">de-DE.com_sermons.ini</language>
+	</languages>
+	<administration>
+		<menu>Predigten</menu>
+		<submenu> 
+			<menu view="files">Dateien</menu>
+			<menu view="folders">Ordner</menu> 
+		</submenu> 
+
+		<files folder="admin">
+			<filename>index.html</filename>
+			<filename>admin.sermons.php</filename>
+			<filename>controller.php</filename>
+			<filename>controllers/file.php</filename>
+			<filename>controllers/folder.php</filename>
+			<filename>controllers/index.html</filename>
+			<filename>models/file.php</filename>
+			<filename>models/files.php</filename>
+			<filename>models/folder.php</filename>
+			<filename>models/folders.php</filename>
+			<filename>models/index.html</filename>
+			<filename>views/file/view.html.php</filename>
+			<filename>views/file/index.html</filename>
+			<filename>views/file/tmpl/form.php</filename>
+			<filename>views/file/tmpl/index.html</filename>
+			<filename>views/files/view.html.php</filename>
+			<filename>views/files/index.html</filename>
+			<filename>views/files/tmpl/default.php</filename>
+			<filename>views/files/tmpl/index.html</filename>
+			<filename>views/folder/view.html.php</filename>
+			<filename>views/folder/index.html</filename>
+			<filename>views/folder/tmpl/form.php</filename>
+			<filename>views/folder/tmpl/index.html</filename>
+			<filename>views/folders/view.html.php</filename>
+			<filename>views/folders/tmpl/default.php</filename>
+			<filename>views/folders/index.html</filename>
+			<filename>views/folders/tmpl/index.html</filename>
+			<filename>tables/file.php</filename>
+			<filename>tables/folder.php</filename>
+			<filename>tables/index.html</filename>
+			<filename>install.sql</filename>
+			<filename>uninstall.sql</filename>
+		</files>		
+	</administration>
+</install>

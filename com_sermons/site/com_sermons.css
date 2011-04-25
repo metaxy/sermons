@@ -1,0 +1,63 @@
+#com_sermons #foldertable {
+    padding: 0;
+    margin: 0;
+}
+
+#com_sermons th {
+    font: bold 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+    color: #4f6b72;
+    border-right: 1px solid #c8d4e8;
+    border-bottom: 1px solid #c8d4e8;
+    border-top: 1px solid #c8d4e8;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow:1px 1px 3px #FFFFFF;
+    text-align: left;
+    padding: 6px 6px 6px 12px;
+    background: #CAE8EA url(bg_header.jpg) repeat-x;
+}
+#com_sermons th.left {
+    border-left: 1px solid #c8d4e8;
+}
+
+#com_sermons td {
+    border-right: 1px solid #c8d4e8;
+    border-bottom: 1px solid #c8d4e8;
+    background: #fff;
+    padding: 3px 3px 3px 6px;
+    color: #4f6b72;
+}
+#com_sermons th.spec {
+    border-left: 1px solid #c8d4e8;
+    border-top: 0;
+    background: #fff;
+    font: bold 10px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+}
+#com_sermons div#lastestbox {
+    border: 1px solid #c8d4e8;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    margin-left: 5px;
+    margin-top:5px;
+    margin-bottom:5px;
+    margin-right:5px;
+
+    border-radius:5px;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    -khtml-border-radius:5px;
+}
+#com_sermons #lfoldertable {
+    margin-left: 5px;
+}
+#com_sermons #ltitle {
+    margin-left: 5px;
+}
+#com_sermons #lang {
+    text-align: center;
+    width:100%;
+    font-size:21px;
+}
+#com_sermons .big {
+    font: bold 20px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+}
