@@ -9,7 +9,7 @@
 		}
 		// do field validation
 		if (form.path.value == "") {
-			alert( "<?php echo JText::_( 'Folder must have a path', true ); ?>" );
+			alert( "<?php echo JText::_( 'COM_SERMONS_NEED_PATH', true ); ?>" );
 		} else {
 			submitform( pressbutton );
 		}

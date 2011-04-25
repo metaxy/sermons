@@ -12,10 +12,7 @@ class SermonsModelFiles extends JModel
     var $_data;
 
     function _buildQuery() {
-        $query = ' SELECT * '
-                 . ' FROM #__sermonsFile '
-                 ;
-
+        $query = 'SELECT * FROM #__sermonsFile ';
         return $query;
     }
     function getData() {

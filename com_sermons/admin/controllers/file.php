@@ -24,12 +24,11 @@ class SermonsControllerFile extends SermonsController
         $model = $this->getModel('file');
 
         if($model->store($post)) {
-            $msg = JText::_('Auto Saved!');
+            $msg = JText::_('File Saved!');
         } else {
-            $msg = JText::_('Error Saving Auto');
+            $msg = JText::_('Error Saving File');
         }
 
-        // Check the table in so it can be edited.... we are done with it anyway
         $link = 'index.php?option=com_sermons&view=files';
         $this->setRedirect($link, $msg);
     }

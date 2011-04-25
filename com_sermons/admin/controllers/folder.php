@@ -22,9 +22,9 @@ class SermonsControllerFolder extends SermonsController
         $model = $this->getModel('folder');
 
         if($model->store($post)) {
-            $msg = JText::_('Auto Saved!');
+            $msg = JText::_('Folder Saved!');
         } else {
-            $msg = JText::_('Error Saving Auto');
+            $msg = JText::_('Error Saving Folder');
         }
         $this->setRedirect('index.php?option=com_sermons&view=folders', $msg);
     }
@@ -43,12 +43,12 @@ class SermonsControllerFolder extends SermonsController
     function publish() {
         $this->setRedirect('index.php?option=com_sermons&view=folders');
 
-        $db         = & JFactory::getDBO();
-        $user       = & JFactory::getUser();
-        $cid        = JRequest::getVar('cid', array(), 'post', 'array');
-        $task       = JRequest::getCmd('task');
-        $publish    = ($task == 'publish');
-        $n          = count($cid);
+        $db = & JFactory::getDBO();
+        $user = & JFactory::getUser();
+        $cid = JRequest::getVar('cid', array(), 'post', 'array');
+        $task  = JRequest::getCmd('task');
+        $publish = ($task == 'publish');
+        $n = count($cid);
 
         if(empty($cid)) {
             return JError::raiseWarning(500, JText::_('No items selected'));

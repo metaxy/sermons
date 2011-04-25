@@ -18,8 +18,8 @@ class SermonsModelFile extends JModel
 
     function setId($id) {
         // Set id and wipe data
-        $this->_id      = $id;
-        $this->_data    = null;
+        $this->_id = $id;
+        $this->_data = null;
     }
 
 

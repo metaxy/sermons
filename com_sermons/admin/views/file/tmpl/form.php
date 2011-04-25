@@ -176,7 +176,7 @@
 		<tr>
 			<td width="110" class="key">
 				<label for="title">
-					<?php echo JText::_( 'COM_SERMONS_FODLER' );?>:
+					<?php echo JText::_( 'COM_SERMONS_FOLDER' );?>:
 				</label>
 			</td>
 			<td>

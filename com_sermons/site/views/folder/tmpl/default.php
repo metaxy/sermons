@@ -17,7 +17,7 @@ function videopopup (url) {
 
 if($this->showFileList == false) {
     if($this->top == 0) {
-       echo "<div id='lang'>Predigten in ";
+       echo "<div id='lang'>".JText::_('COM_SERMONS_WELCOME')." ";
        $i = 0;
        foreach ($this->folders as $folder) {
             $link = JRoute::_('index.php?option=com_sermons&view=folder&id='. $folder->id );
@@ -32,7 +32,7 @@ if($this->showFileList == false) {
 		echo "<br /> <br /><br />";
 
 		echo "<div id='lastestbox'>";
-		echo "<h3 id='ltitle'>Die Letzten 6 Predigten</h3><br />";
+		echo "<h3 id='ltitle'>".JText::_('COM_SERMONS_LAST_SERMONS')."</h3><br />";
 		echo "<table id='lfoldertable' cellspacing='0'>";
         echo "<tr>";
         echo "<th scope='col' class='left'>".JText::_('COM_SERMONS_TITLE')."</th>";
@@ -54,9 +54,9 @@ if($this->showFileList == false) {
 			   if($file->video != "") {
                     $urls = explode("\n", $file->video);
                     if(count($urls) == 1) {
-                        echo " | " . "<a href='$file->video' onclick='return videopopup(this.href);'>Video</a>";
+                        echo " | " . "<a href='$file->video' onclick='return videopopup(this.href);'>".JText::_('COM_SERMONS_VIDEO')."</a>";
                     } else {
-                        echo " | Video "; 
+                        echo " | ".JText::_('COM_SERMONS_VIDEO')." "; 
                         foreach ($urls as $key => $value) {
                             echo "<a href='$value' onclick='return videopopup(this.href);'>".($key+1)."</a> ";
                         }
@@ -102,9 +102,9 @@ if($this->showFileList == false) {
 		if($file->video != "") {
             $urls = explode("\n", $file->video);
             if(count($urls) == 1) {
-                echo " | " . "<a href='$file->video' onclick='return videopopup(this.href);'>Video</a>";
+                echo " | " . "<a href='$file->video' onclick='return videopopup(this.href);'>".JText::_('COM_SERMONS_VIDEO')."</a>";
             } else {
-                echo " | Video "; 
+                echo " | ".JText::_('COM_SERMONS_VIDEO')." "; 
                 foreach ($urls as $key => $value) {
                     echo "<a href='$value' onclick='return videopopup(this.href);'>".($key+1)."</a> ";
                 }
