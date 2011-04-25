@@ -37,6 +37,8 @@
 		<filename>models/folder.php</filename>
 		<filename>models/file.php</filename>
 		<filename>models/index.html</filename>
+        <filename>com_sermons.css</filename>
+        <filename>bg_header.jpg</filename>
 	</files>
 
 	<languages>

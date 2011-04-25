@@ -118,17 +118,17 @@
 		<tr>
 			<td width="110" class="key">
 				<label for="title">
-					<?php echo JText::_( 'Prediger' ); ?>:
+					<?php echo JText::_( 'COM_SERMONS_SPEAKER' ); ?>:
 				</label>
 			</td>
 			<td>
-				<input class="inputbox" type="text" name="prediger" id="prediger" size="60" value="<?php echo $this->file->prediger; ?>" />
+				<input class="inputbox" type="text" name="speaker" id="speaker" size="60" value="<?php echo $this->file->speaker; ?>" />
 			</td>
 		</tr>
 		<tr>
 			<td width="110" class="key">
 				<label for="title">
-					<?php echo htmlentities(JText::_( 'Topic' )); ?>:
+					<?php echo htmlentities(JText::_( 'COM_SERMONS_TOPIC' )); ?>:
 				</label>
 			</td>
 			<td>
@@ -138,7 +138,7 @@
 		<tr>
 			<td width="110" class="key">
 				<label for="title">
-					<?php echo JText::_( 'Path' ); ?>:
+					<?php echo JText::_( 'COM_SERMONS_PATH' ); ?>:
 				</label>
 			</td>
 			<td>
@@ -156,17 +156,17 @@
 		<tr>
 			<td width="110" class="key">
 				<label for="title">
-					<?php echo htmlentities(JText::_( 'Video' )); ?>:
+					<?php echo htmlentities(JText::_( 'COM_SERMONS_VIDEO' )); ?>:
 				</label>
 			</td>
 			<td>
-				<input class="inputbox" type="text" name="video" id="video" size="60" value="<?php echo htmlspecialchars($this->file->video); ?>" />
+				<textarea name="video" id="video" cols="80" rows="4"><?php echo htmlspecialchars($this->file->video); ?></textarea>
 			</td>
 		</tr>
 		<tr>
 			<td width="110" class="key">
 				<label for="title">
-					<?php echo JText::_( 'Date' ); ?>:
+					<?php echo JText::_( 'COM_SERMONS_DATE' ); ?>:
 				</label>
 			</td>
 			<td>
@@ -176,7 +176,7 @@
 		<tr>
 			<td width="110" class="key">
 				<label for="title">
-					<?php echo JText::_( 'Folder' );?>:
+					<?php echo JText::_( 'COM_SERMONS_FODLER' );?>:
 				</label>
 			</td>
 			<td>
@@ -189,7 +189,6 @@
 				}
 				echo "<option value='".$this->foldersID[$i]."' $add>".$this->folders[$i]."</option>";
 			}
-/*echo $this->file->folder;*/
 			?>
 			</select>
 				
@@ -203,6 +202,14 @@
 				<?php if(!$this->file->folder) $this->file->published = true; echo JHTML::_( 'select.booleanlist',  'published', 'class="inputbox"', $this->file->published ); ?>
 			</td>
 		</tr>
+		<tr>
+            <td width="120" class="key">
+                <?php echo JText::_( 'COM_SERMONS_PRIVATE' ); ?>:
+            </td>
+            <td>
+                <?php if(!$this->file->folder) $this->file->privateFile = false; echo JHTML::_( 'select.booleanlist',  'privateFile', 'class="inputbox"', $this->file->privateFile ); ?>
+            </td>
+        </tr>
 	</table>
 	</fieldset>
 </div>

@@ -24,7 +24,7 @@
 		<tr>
 			<td width="110" class="key">
 				<label for="title">
-					<?php echo JText::_( 'Alias' ); ?>:
+					<?php echo JText::_( 'COM_SERMONS_ALIAS' ); ?>:
 				</label>
 			</td>
 			<td>
@@ -34,7 +34,7 @@
 		<tr>
 			<td width="110" class="key">
 				<label for="alias">
-					<?php echo JText::_( 'Path' ); ?>:
+					<?php echo JText::_( 'COM_SERMONS_PATH' ); ?>:
 				</label>
 			</td>
 			<td>
@@ -44,11 +44,11 @@
 		<tr>
 			<td width="110" class="key">
 				<label for="alias">
-					<?php echo JText::_( 'Top' ); ?>:
+					<?php echo JText::_( 'COM_SERMONS_PARENT_FOLDER' ); ?>:
 				</label>
 			</td>
 			<td>
-				<input class="inputbox" type="text" name="top" id="top" size="60" value="<?php echo $this->folder->top; ?>" />
+				<input class="inputbox" type="text" name="top" id="top" size="60" value="<?php echo $this->folder->parentFolder; ?>" />
 			</td>
 		</tr>
 		<tr>

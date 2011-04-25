@@ -8,7 +8,7 @@ class TableFolder extends JTable
     var $id = 0;
     var $alias = '';
     var $path = '';
-    var $top = 0;
+    var $parentFolder = 0;
     var $published = 0;
 
     function TableFolder(& $db) {

@@ -25,14 +25,14 @@
 			
 	</thead>
 	<?php
-	$k = 0;
-	for ($i=0, $n=count( $this->items ); $i < $n; $i++)
-	{
-		$row = &$this->items[$i];
-		
-		$published		= JHTML::_('grid.published', $row, $i );
-		$checked 	= JHTML::_('grid.id',   $i, $row->id );
-		$link 		= JRoute::_( 'index.php?option=com_predigten&controller=folder&task=edit&cid[]='. $row->id );
+    $k = 0;
+    for ($i = 0, $n = count( $this->items ); $i < $n; $i++)
+    {
+        $row = &$this->items[$i];
+
+        $published = JHTML::_('grid.published', $row, $i );
+        $checked = JHTML::_('grid.id',   $i, $row->id );
+        $link = JRoute::_( 'index.php?option=com_sermons&controller=folder&task=edit&cid[]='. $row->id );
 
 		?>
 		<tr class="<?php echo "row$k"; ?>">

@@ -46,7 +46,7 @@ if($this->showFileList == false) {
 			    echo "<tr>";
 			    echo "<th class='spec' scope='row'>$file->title</th>";
 			    echo "<td>$file->topic</td>";
-			    echo "<td>$file->prediger</td>";
+			    echo "<td>$file->speaker</td>";
 			    echo "<td>$file->date</td>";
 			    
 			    echo "<td>";
@@ -81,32 +81,7 @@ if($this->showFileList == false) {
 } else {
 	//sort
 	
-    function cmp( $a, $b )
-    {
-        $sortBy = JRequest::getString("sort","date","GET");
-        if($sortBy == "date") {
-            if( $a->date ==  $b->date) { 
-                return 0; 
-            } 
-            return (strtotime($a->date) > strtotime($b->date)) ? -1 : 1;
-        } else if($sortBy == "topic") {
-            if($a->topic == "")
-                return 1;
-            if($b->topic == "")
-                return -1;
-            return strnatcmp($a->topic, $b->topic);
-        }
-        else if($sortBy == "speaker") {
-            
-            if($a->speaker == "")
-                return 1;
-            if($b->speaker == "")
-                return -1;
-            return strnatcmp($a->speaker, $b->speaker);
-        }
-
-    }
-    usort($this->files,'cmp');
+   
 
 	echo "<table id='foldertable' cellspacing='0'><tr><th scope='col' class='left'>".JText::_('COM_SERMONS_TITLE')."</th>";
 	$topicSort = JRoute::_('index.php?option=com_sermons&view=folder&id='.JRequest::getInt("id",0,"GET")."&sort=topic" );
@@ -120,7 +95,7 @@ if($this->showFileList == false) {
 		echo "<tr>";
 		echo "<th class='spec' scope='row'>$file->title</th>";
 		echo "<td>$file->topic</td>";
-		echo "<td>$file->prediger</td>";
+		echo "<td>$file->speaker</td>";
 		echo "<td>$file->date</td>";
 		echo "<td>";
 		echo JHtml::_('link', $file->path, JText::_('COM_SERMONS_DOWNLOAD_FILE'));

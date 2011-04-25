@@ -8,8 +8,8 @@ class SermonsControllerFolder extends SermonsController
         parent::__construct();
 
         // Register Extra tasks
-        $this->registerTask('add'  ,    'edit');
-        $this->registerTask('unpublish',    'publish');
+        $this->registerTask('add', 'edit');
+        $this->registerTask('unpublish', 'publish');
     }
     function edit() {
         JRequest::setVar('view', 'folder');
