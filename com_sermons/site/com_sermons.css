@@ -53,10 +53,11 @@
 #com_sermons #ltitle {
     margin-left: 5px;
 }
-#com_sermons #lang {
+#com_sermons #welcome {
     text-align: center;
     width:100%;
     font-size:21px;
+    margin-bottom:15px;
 }
 #com_sermons .big {
     font: bold 20px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;

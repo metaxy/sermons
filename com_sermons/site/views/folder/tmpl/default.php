@@ -16,20 +16,21 @@ return false;
 
 
 if($this->showFileList == false) {
-    if($this->top == 0) {
-    echo "<div id='lang'>".JText::_('COM_SERMONS_WELCOME')." ";
-    $i = 0;
-    foreach ($this->folders as $folder) {
-            $link = JRoute::_('index.php?option=com_sermons&view=folder&id='. $folder->id );
-            if($i != 0) {
-                echo " | ";
-            }
-            echo "<span class='big'>" .JHtml::_('link', $link, $folder->alias). "</span>";
-            $i++;
-        }
-        echo "</div>";
 
-        echo "<br /> <br /><br />";
+    if($this->id == 0) {
+        if(count($this->folders) > 0) {
+            echo "<div id='welcome'>".JText::_('COM_SERMONS_WELCOME')." ";
+            $i = 0;
+            foreach ($this->folders as $folder) {
+                $link = JRoute::_('index.php?option=com_sermons&view=folder&id='.$folder->id);
+                if($i != 0) {
+                    echo " | ";
+                }
+                echo "<span class='big'>" .JHtml::_('link', $link, $folder->alias). "</span>";
+                $i++;
+            }
+            echo "</div>";
+        }
 
         echo "<div id='lastestbox'>";
         echo "<h3 id='ltitle'>".JText::_('COM_SERMONS_LAST_SERMONS')."</h3><br />";
@@ -70,26 +71,28 @@ if($this->showFileList == false) {
         echo "</table>";
         echo "</div><br /><br />";
 
-        $link = JRoute::_('index.php?option=com_sermons&view=folder&id=-1' );
-        echo JHtml::_('link', $link, "Alle Predigten anzeigen"). "<br />";
+        $link = JRoute::_('index.php?option=com_sermons&view=folder&id=-1');
+        echo JHtml::_('link', $link, JText::_('COM_SERMON_SHOW_ALL_SERMONS')). "<br />";
     } else {
         foreach ($this->folders as $folder) {
-            $link = JRoute::_('index.php?option=com_sermons&view=folder&id='. $folder->id );
+            $link = JRoute::_('index.php?option=com_sermons&view=folder&id='.$folder->id);
             echo JHtml::_('link', $link, $folder->alias). " <br />";
         }
     }
 } else {
-    //sort
-    
 
 
     echo "<table id='foldertable' cellspacing='0'><tr><th scope='col' class='left'>".JText::_('COM_SERMONS_TITLE')."</th>";
+    
     $topicSort = JRoute::_('index.php?option=com_sermons&view=folder&id='.JRequest::getInt("id",0,"GET")."&sort=topic" );
     echo "<th scope='col'>".JHtml::_('link', $topicSort, JText::_('COM_SERMONS_TOPIC'))."</th>";
+    
     $speakerSort = JRoute::_('index.php?option=com_sermons&view=folder&id='.JRequest::getInt("id",0,"GET")."&sort=speaker" );
-    echo "<th scope='col'>".JHtml::_('link', $speaker, JText::_('COM_SERMONS_SPEAKER'))."</th>";
+    echo "<th scope='col'>".JHtml::_('link', $speakerSort, JText::_('COM_SERMONS_SPEAKER'))."</th>";
+    
     $dateSort = JRoute::_('index.php?option=com_sermons&view=folder&id='.JRequest::getInt("id",0,"GET")."&sort=date" );
     echo "<th scope='col'>".JHtml::_('link', $dateSort, JText::_('COM_SERMONS_DATE'))."</th>";
+    
     echo "<th scope='col'>".JText::_('COM_SERMONS_DOWNLOAD')."</th></tr>";
     foreach ($this->files as $file) {
         echo "<tr>";

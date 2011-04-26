@@ -16,10 +16,17 @@ class SermonsModelFolder extends JModel
     function getFileList($folder = 0)
     {
         $db =& JFactory::getDBO();
+        
+        $user =& JFactory::getUser();
+        $private = "";
+        if($user->guest) {
+            $private = " AND privateFile='0'";
+        }
+        
         if($folder == -1) {//All Files
             $query = "SELECT * FROM #__sermonsFile";
         } else {
-            $query = "SELECT * FROM #__sermonsFile WHERE folder='$folder'";
+            $query = "SELECT * FROM #__sermonsFile WHERE folder='$folder'".$private;
         }
         $result = $this->_getList( $query );
         return @$result;
@@ -28,17 +35,35 @@ class SermonsModelFolder extends JModel
     function getLastFileList()
     {
         $db =& JFactory::getDBO();
-        $query = "SELECT * FROM #__sermonsFile ORDER BY id DESC LIMIT 6";
+        
+        $user =& JFactory::getUser();
+        $private = "";
+        if($user->guest) {
+            $private = " WHERE privateFile='0'";
+        }
+        
+        $query = "SELECT * FROM #__sermonsFile ORDER BY id DESC LIMIT 6".$private;
         $result = $this->_getList( $query );
         return @$result;
     }
     function getFileCount($folder = 0)
     {
         $db =& JFactory::getDBO();
+        
+        $user =& JFactory::getUser();
+        $private = "";
+        
+        
         if($folder == -1) {//All Files
-            $query = "SELECT id,folder FROM #__sermonsFile";
+            if($user->guest) {
+                $private = " WHERE privateFile='0'";
+            }
+            $query = "SELECT id,folder FROM #__sermonsFile".$private;
         } else {
-            $query = "SELECT id,folder FROM #__sermonsFile WHERE folder='$folder'";
+            if($user->guest) {
+                $private = " AND privateFile='0'";
+            }
+            $query = "SELECT id,folder FROM #__sermonsFile WHERE folder='$folder'".$private;
         }
 
         $db->setQuery($query);
