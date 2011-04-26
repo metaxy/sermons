@@ -1,8 +1,6 @@
 <?php
 jimport( 'joomla.application.component.view');
-class SermonsViewFolder extends JView
-{
-    function cmp( $a, $b )
+ function cmp( $a, $b )
     {
         $sortBy = JRequest::getString("sort","date","GET");
         if($sortBy == "date") {
@@ -27,10 +25,12 @@ class SermonsViewFolder extends JView
         }
 
     }
+class SermonsViewFolder extends JView
+{
     function display($tpl = null)
     {
         $model = &$this->getModel();
-        $id = JRequest::getInt("id",0,"GET");
+        $id = JRequest::getInt("id", 0, "GET");
         $fileCount = $model->getFileCount($top);
 
         $showFileList;

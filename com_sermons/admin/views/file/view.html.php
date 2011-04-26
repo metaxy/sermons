@@ -14,7 +14,7 @@ class SermonsViewFile extends JView
     {
         $db =& JFactory::getDBO();
         
-        $query = "SELECT id,alias FROM #__sermonsFolder WHERE top='$folderID'";
+        $query = "SELECT id,alias FROM #__sermonsFolder WHERE parentFolder='$folderID'";
         $db->setQuery($query);
         $folders = $db->loadObjectList();
         foreach($folders as $folder)
@@ -29,7 +29,7 @@ class SermonsViewFile extends JView
         $db =& JFactory::getDBO();
         $this->folderAliasArray = array();
         $this->folderIDArray = array();
-        $query = "SELECT * FROM #__sermonsFolder WHERE top='0'";
+        $query = "SELECT * FROM #__sermonsFolder WHERE parentFolder='0'";
         $db->setQuery($query);
         $folders = $db->loadObjectList();
         foreach($folders as $folder)
