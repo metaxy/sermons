@@ -10,6 +10,7 @@ class SermonsViewFile extends JView
     var $folderAliasArray;
     var $folderIDArray;
     var $notUsed;
+    var $notUsedCount;
     function followArray($folderID,$name)
     {
         $db =& JFactory::getDBO();
@@ -67,6 +68,7 @@ class SermonsViewFile extends JView
                 $this->notUsed .= $cache;
                 $this->notUsed .= "</optgroup>\n";
             }
+            $this->notUsedCount = count($list);
             for($i = 0;$i < count($list);$i++) {
                 $this->getNotUsedFiles($dir."/".$list[$i]);
             }
@@ -95,6 +97,7 @@ class SermonsViewFile extends JView
         $this->notUsed = "";
         $this->getNotUsedFiles("downloads/Predigten");
         $this->assignRef('notUsed', $this->notUsed);
+        $this->assignRef('notUsedCount', $this->notUsedCount);
         parent::display($tpl);
     }
 }

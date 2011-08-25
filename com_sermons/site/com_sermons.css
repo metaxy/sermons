@@ -1,4 +1,4 @@
-#com_sermons #foldertable {
+#com_sermonst #foldertable {
     padding: 0;
     margin: 0;
 }
@@ -61,4 +61,31 @@
 }
 #com_sermons .big {
     font: bold 20px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+}
+
+
+#mod_sermons_lastest {
+    padding: 0;
+    margin-left: 3px;
+    margin-right: 3px;
+}
+#mod_sermons_lastest .foldertable {
+    width: 100%;
+
+}
+#mod_sermons_lastest .foldertable th {
+    font: bold 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+    color: #4f6b72;
+    letter-spacing: 2px;
+    text-shadow:1px 1px 3px #FFFFFF;
+    text-align: left;
+  /*  padding: 6px 6px 6px 12px;*/
+}
+#mod_sermons_lastest * th.left {
+    letter-spacing: 1px;
+}
+#mod_sermons_lastest * td {
+   /* padding: 3px 3px 3px 6px;*/
+    color: #4f6b72;
+    letter-spacing: 1px;
 }

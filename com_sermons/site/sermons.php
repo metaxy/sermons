@@ -14,6 +14,7 @@ if($controller = JRequest::getWord('controller')) {
 if (!JRequest::getCmd( 'view' ) ) {
     JRequest::setVar('view', 'folder' );
 }
+
 $classname = 'SermonsController'.ucfirst($controller);
 $controller = new $classname( );
 

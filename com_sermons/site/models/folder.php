@@ -13,6 +13,7 @@ class SermonsModelFolder extends JModel
         $result = $this->_getList( $query );
         return @$result;
     }
+    
     function getFileList($folder = 0)
     {
         $db =& JFactory::getDBO();
@@ -42,10 +43,11 @@ class SermonsModelFolder extends JModel
             $private = " WHERE privateFile='0'";
         }
         
-        $query = "SELECT * FROM #__sermonsFile ORDER BY id DESC LIMIT 6".$private;
+        $query = "SELECT * FROM #__sermonsFile ".$private. "ORDER BY id DESC LIMIT 6";
         $result = $this->_getList( $query );
         return @$result;
     }
+    
     function getFileCount($folder = 0)
     {
         $db =& JFactory::getDBO();
@@ -71,6 +73,7 @@ class SermonsModelFolder extends JModel
         $num_rows = $db->getNumRows();
         return $num_rows;
     }
+    
     function getPath($folder = 0)
     {
         $this->path = " ";
@@ -78,6 +81,7 @@ class SermonsModelFolder extends JModel
         $this->rekPath($folder);
         return $this->path;
     }
+    
     function rekPath($folder)
     {
         $db =& JFactory::getDBO();
@@ -101,7 +105,6 @@ class SermonsModelFolder extends JModel
                 $this->path = "Predigten".$this->path;
             }
         }
-
     }
 }
 ?>

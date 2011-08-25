@@ -12,7 +12,10 @@
                 <input type="checkbox" name="toggle" value="" onclick="checkAll(<?php echo count( $this->items ); ?>);" />
             </th>
             <th  class="title">
-                <?php echo JHTML::_('grid.sort','File', 'a.text', @$lists['order_Dir'], @$this->lists['order'] ); ?>
+                <?php echo JHTML::_('grid.sort','Title', 'a.text', @$lists['order_Dir'], @$this->lists['order'] ); ?>
+            </th>
+            <th>
+                <?php echo JHTML::_('grid.sort','Filename', 'a.text', @$lists['order_Dir'], @$this->lists['order'] ); ?>
             </th>
             <th width="5%" align="center">
                 <?php echo JHTML::_('grid.sort','Published', 'a.published', @$this->lists['order_Dir'], @$this->lists['order'] ); ?>
@@ -45,7 +48,18 @@
                 <?php echo $checked; ?>
             </td>
             <td>
-                <a href="<?php echo $link; ?>"><?php echo $row->path; ?></a>
+                <a href="<?php echo $link; ?>"><?php echo $row->title; ?></a>
+            </td>
+            <td>
+                <?php
+                if($row->title == "")
+                    echo "<a href='$link'>";
+                    
+                echo $row->path;
+                
+                if($row->title == "")
+                    echo "</a>";
+                ?>
             </td>
             <td align="center">
                 <?php echo $published;?>

@@ -43,7 +43,6 @@ class SermonsViewFolder extends JView
                 $this->assignRef('last', $last);
             }
             $this->assignRef('folders', $folderList);
-            
         } else {
             $showFileList = true;
 

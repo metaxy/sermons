@@ -145,7 +145,7 @@
             <?php if($this->file->path) {?>
                 <input class="inputbox" type="text" name="path" id="path" size="60" value="<?php echo $this->file->path; ?>" />
                 <?php } else {?>
-                <select name="path" size="30" onchange="pharse(this.form.path.options[this.form.path.selectedIndex].value)">
+                <select name="path" size="<?php echo ($this->notUsed > 30) ? 30 : ($this->notUsed+3);?>" onchange="pharse(this.form.path.options[this.form.path.selectedIndex].value)">
                 <?php
                     echo $this->notUsed;
                 ?>
