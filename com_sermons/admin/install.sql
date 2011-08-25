@@ -9,7 +9,7 @@ CREATE TABLE `#__sermonsFile` (
   `date` varchar(200) character set utf8 NOT NULL,
   `folder` int(11) NOT NULL,
   `published` tinyint(1) NOT NULL,
-  `video` text,
+  `links` text,
   `privateFile` tinyint(1) NOT NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM  AUTO_INCREMENT=1 ;

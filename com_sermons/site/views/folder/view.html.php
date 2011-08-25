@@ -1,30 +1,31 @@
 <?php
 jimport( 'joomla.application.component.view');
- function cmp( $a, $b )
-    {
-        $sortBy = JRequest::getString("sort","date","GET");
-        if($sortBy == "date") {
-            if( $a->date ==  $b->date) { 
-                return 0; 
-            } 
-            return (strtotime($a->date) > strtotime($b->date)) ? -1 : 1;
-        } else if($sortBy == "topic") {
-            if($a->topic == "")
-                return 1;
-            if($b->topic == "")
-                return -1;
-            return strnatcmp($a->topic, $b->topic);
-        }
-        else if($sortBy == "speaker") {
-            
-            if($a->speaker == "")
-                return 1;
-            if($b->speaker == "")
-                return -1;
-            return strnatcmp($a->speaker, $b->speaker);
-        }
-
+function cmp( $a, $b )
+{
+    $sortBy = JRequest::getString("sort", "date", "GET");
+    
+    if($sortBy == "date") {
+        if( $a->date ==  $b->date) { 
+            return 0; 
+        } 
+        return (strtotime($a->date) > strtotime($b->date)) ? -1 : 1;
+    } else if($sortBy == "topic") {
+        if($a->topic == "")
+            return 1;
+        if($b->topic == "")
+            return -1;
+        return strnatcmp($a->topic, $b->topic);
     }
+    else if($sortBy == "speaker") {
+        if($a->speaker == "")
+            return 1;
+        if($b->speaker == "")
+            return -1;
+        return strnatcmp($a->speaker, $b->speaker);
+    }
+
+}
+
 class SermonsViewFolder extends JView
 {
     function display($tpl = null)
@@ -47,7 +48,8 @@ class SermonsViewFolder extends JView
             $showFileList = true;
 
             $fileList = $model->getFileList($top);
-            usort($fileList,'cmp');
+            
+            usort($fileList, 'cmp');
             
             $this->assignRef('files', $fileList);
             

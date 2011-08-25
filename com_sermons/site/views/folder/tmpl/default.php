@@ -52,7 +52,7 @@ if($this->showFileList == false) {
                 
                 echo "<td>";
                 echo JHtml::_('link', $file->path, JText::_('COM_SERMONS_DOWNLOAD_FILE'));
-            if($file->video != "") {
+                if($file->links != "") {
                     $urls = explode("\n", $file->video);
                     if(count($urls) == 1) {
                         echo " | " . "<a href='$file->video' onclick='return videopopup(this.href);'>".JText::_('COM_SERMONS_VIDEO')."</a>";
@@ -102,8 +102,8 @@ if($this->showFileList == false) {
         echo "<td>$file->date</td>";
         echo "<td>";
         echo JHtml::_('link', $file->path, JText::_('COM_SERMONS_DOWNLOAD_FILE'));
-        if($file->video != "") {
-            $urls = explode("\n", $file->video);
+        if($file->links != "") {
+            $urls = explode("\n", $file->links);
             if(count($urls) == 1) {
                 echo " | " . "<a href='$file->video' onclick='return videopopup(this.href);'>".JText::_('COM_SERMONS_VIDEO')."</a>";
             } else {
