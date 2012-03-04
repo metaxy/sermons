@@ -13,7 +13,7 @@ class TableFile extends JTable
     var $date = '';
     var $folder = 0;
     var $published = 0;
-    var $video = '';
+    var $links = '';
     var $privateFile = 0;
     function TableFile(& $db) {
         parent::__construct('#__sermonsFile', 'id', $db);

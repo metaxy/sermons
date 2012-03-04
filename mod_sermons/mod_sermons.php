@@ -30,16 +30,44 @@ if($result != 0) {
             echo "<th class='spec' scope='row'>". JHtml::_('link', $link, $file->topic)."</th>";
             
             echo "<td style='text-align: center;'>";
-            echo JHtml::_('link', $file->path, JText::_('COM_SERMONS_DOWNLOAD_FILE'));
+            if($file->path != "")
+                echo JHtml::_('link', $file->path, JText::_('COM_SERMONS_DOWNLOAD_FILE'));
+                
             if($file->links != "") {
-                $urls = explode("\n", $file->video);
-                if(count($urls) == 1) {
-                    echo " | " . "<a href='$file->video' onclick='return videopopup(this.href);'>".JText::_('COM_SERMONS_VIDEO')."</a>";
-                } else {
-                    echo " | ".JText::_('COM_SERMONS_VIDEO')." "; 
-                    foreach ($urls as $key => $value) {
-                        echo "<a href='$value' onclick='return videopopup(this.href);'>".($key+1)."</a> ";
-                    }
+                $urls = explode("\n", $file->links);
+                
+                if($file->path != "")
+                    echo " | ";
+                
+               
+                foreach ($urls as $key => $value) {
+                        $ext = pathinfo($value, PATHINFO_EXTENSION);
+                        $isVideo = strpos($value, "justin.tv");
+                        if ($isVideo !== false) {
+                            $ext = "video";
+                        }
+                        $urls[$value] = $ext;
+                }
+                
+                $before_ext = "";
+                $counter = 0;
+                foreach ($urls as $url => $ext) {
+                        if($ext == $before_ext) {
+                            $counter++;
+                            if($ext == "video") {
+                                echo "<a href='$url' onclick='return videopopup(this.href);'>".($counter)."</a> ";
+                            } else {
+                               echo "<a href='$url'>".($counter)."</a> "; 
+                            }
+                        } else {
+                            $before_ext = $ext;
+                            $counter = 0;
+                            if($ext == "video") {
+                                echo "<a href='$url' onclick='return videopopup(this.href);'>".JText::_('COM_SERMON_EXT_VIDEO')."</a> ";
+                            } else if($ext == "pdf") {
+                               echo "<a href='$url'>".JText::_('COM_SERMON_EXT_PDF')."</a> "; 
+                            }
+                        }
                 }
                         
             }

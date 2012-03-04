@@ -160,7 +160,7 @@
                 </label>
             </td>
             <td>
-                <textarea name="video" id="video" cols="80" rows="4"><?php echo htmlspecialchars($this->file->video); ?></textarea>
+                <textarea name="links" id="links" cols="80" rows="4"><?php echo htmlspecialchars($this->file->links); ?></textarea>
             </td>
         </tr>
         <tr>

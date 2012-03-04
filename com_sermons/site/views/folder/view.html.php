@@ -31,10 +31,10 @@ class SermonsViewFolder extends JView
     function display($tpl = null)
     {
         $model = &$this->getModel();
-        $id = JRequest::getInt("id", 0, "GET");
+        $top = JRequest::getInt("id", 0, "GET");
         $fileCount = $model->getFileCount($top);
 
-        $showFileList;
+        $showFileList = false;
         if($fileCount == 0) {
             $showFileList = false;
             $folderList = $model->getFolderList($top);

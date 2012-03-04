@@ -41,7 +41,7 @@ class SermonsModelFile extends JModel
             $this->_data->date = null;
             $this->_data->folder = null;
             $this->_data->published = null;
-            $this->_data->video = null;
+            $this->_data->links = null;
             $this->_data->privateFile = null;
 
         }

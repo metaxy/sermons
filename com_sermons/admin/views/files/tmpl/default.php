@@ -12,16 +12,19 @@
                 <input type="checkbox" name="toggle" value="" onclick="checkAll(<?php echo count( $this->items ); ?>);" />
             </th>
             <th  class="title">
-                <?php echo JHTML::_('grid.sort','Title', 'a.text', @$lists['order_Dir'], @$this->lists['order'] ); ?>
+                <?php echo JHTML::_('grid.sort', JText::_( 'COM_SERMONS_TITLE' ), 'a.text', @$lists['order_Dir'], @$this->lists['order'] ); ?>
+            </th>
+             <th >
+                <?php echo JHTML::_('grid.sort', JText::_( 'COM_SERMONS_TOPIC' ), 'a.text', @$lists['order_Dir'], @$this->lists['order'] ); ?>
             </th>
             <th>
-                <?php echo JHTML::_('grid.sort','Filename', 'a.text', @$lists['order_Dir'], @$this->lists['order'] ); ?>
+                <?php echo JHTML::_('grid.sort', JText::_( 'COM_SERMONS_PATH' ), 'a.text', @$lists['order_Dir'], @$this->lists['order'] ); ?>
             </th>
             <th width="5%" align="center">
                 <?php echo JHTML::_('grid.sort','Published', 'a.published', @$this->lists['order_Dir'], @$this->lists['order'] ); ?>
             </th>
             <th width="20%" align="center">
-                <?php echo JHTML::_('grid.sort','Folder', 'a.published', @$this->lists['order_Dir'], @$this->lists['order'] ); ?>
+                <?php echo JHTML::_('grid.sort', JText::_( 'COM_SERMONS_FOLDER' ), 'a.published', @$this->lists['order_Dir'], @$this->lists['order'] ); ?>
             </th>
             <th width="1%" nowrap="nowrap">
                 <?php echo JHTML::_('grid.sort','ID', 'a.id', @$this->lists['order_Dir'], @$this->lists['order'] ); ?>
@@ -44,11 +47,15 @@
             <td>
                 <?php echo $row->id; ?>
             </td>
+           
             <td>
                 <?php echo $checked; ?>
             </td>
             <td>
-                <a href="<?php echo $link; ?>"><?php echo $row->title; ?></a>
+                <?php echo $row->title; ?>
+            </td>
+             <td>
+                <a href="<?php echo $link; ?>"><?php echo $row->topic; ?></a>
             </td>
             <td>
                 <?php
